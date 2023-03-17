@@ -81,7 +81,6 @@
         console.log(new FormData())
         form.addEventListener("submit",(e)=>{
             e.preventDefault()
-            
             var username=document.forms["myForm"]["name"].value;
             var mobile=document.forms["myForm"]["whatsapp_number"].value;
             var email=document.forms["myForm"]["email_id"].value;
@@ -113,38 +112,6 @@
             }
             return serverCode(data)
         })
-        /*function SubForm (e){
-            e.preventDefault()
-            var username=document.forms["myForm"]["name"].value;
-            var mobile=document.forms["myForm"]["whatsapp_number"].value;
-            var email=document.forms["myForm"]["email_id"].value;
-            var collegename=document.forms["myForm"]["college_name"].value;
-            var mobileCheck=/^[0-9]{10}$/
-            var emailCheck= /^[A-Za-z0-9.]+@[a-zA-Z]+\.[a-z]{2,3}$/;
-                    //sivaram@codegnan.com
-            if(username==""){
-                alert("Please fill your name")
-                return false
-            }
-            if(!mobile.match(mobileCheck)){
-                alert("Please check your mobile number")
-                return false
-            }
-            if(email==""){
-                alert("Please fill email address")
-                return false
-            }
-            if(!email.match(emailCheck)){
-                alert("Please provide valid email address")
-                return false
-            }
-            if(collegename==""){
-                alert("Please fill college name")
-                return false
-            }
-            //return final()
-            return serverCode()
-        }*/
         function serverCode(data){
             console.log(data)
             fetch("https://script.google.com/macros/s/AKfycbw6zNZa-vmOHjZQyA75NXIsYCy1thLX3svmHkWJuVBVi1fkAYsfBPWE7Z8rpEfhh19eWw/exec",{
@@ -158,24 +125,6 @@
             document.forms["myForm"]["email_id"].value=""
             document.forms["myForm"]["college_name"].value=""
         }
-        /*function final(){
-            $.ajax({
-                url:"https://api.apispreadsheets.com/data/jsBFKzo5MUl0OZ4h/",
-                type:"post",
-                data:$("#myForm").serializeArray(),
-                success: function(){
-                    console.log("Form Data Submitted :)")
-                },
-                error: function(){
-                    alert("There was an error :(")
-                }
-            });
-            alert("Form Data Submitted :)")
-            document.forms["myForm"]["name"].value=""
-            document.forms["myForm"]["whatsapp_number"].value=""
-            document.forms["myForm"]["email_id"].value=""
-            document.forms["myForm"]["college_name"].value=""
-        }*/
     </script>
 </body>
 </html>

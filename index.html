@@ -56,15 +56,15 @@
                       <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your WhatsApp Number" name="whatsapp_number">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Email ID</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Email ID" name="email_id">
+                        <label for="formGroupExampleInput">Email ID:</label>
+                        <input type="email" class="form-control" id="formGroupExampleInput" required placeholder="Enter Your Email ID" name="email_id">
                       </div>
                       <div class="form-group">
-                        <label for="formGroupExampleInput2">College Name</label>
+                        <label for="formGroupExampleInput2">College Name:</label>
                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your College Name" name="college_name">
                       </div>
 
-                      <button type="submit" class="btn btn-success" onclick="SubForm()">Submit</button>
+                      <button type="submit" class="btn btn-success" onclick="SubForm();return false">Submit</button>
                   </form>
             </div>
 
@@ -77,7 +77,38 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     <script>
-        function SubForm (e){
+        function SubForm (){
+            var username=document.forms["myForm"]["name"].value;
+            var mobile=document.forms["myForm"]["whatsapp_number"].value;
+            var email=document.forms["myForm"]["email_id"].value;
+            var collegename=document.forms["myForm"]["college_name"].value;
+            var mobileCheck=/^[0-9]{10}$/
+            var emailCheck= /^[A-Za-z0-9.]+@[a-zA-Z]+\.[a-z]{2,3}$/;
+                    //sivaram@codegnan.com
+            if(username==""){
+                alert("Please fill your name")
+                return false
+            }
+            if(!mobile.match(mobileCheck)){
+                alert("Please check your mobile number")
+                return false
+            }
+            if(email==""){
+                alert("Please fill email address")
+                return false
+            }
+            if(!email.match(emailCheck)){
+                alert("Please provide valid email address")
+                return false
+            }
+            if(collegename==""){
+                alert("Please fill college name")
+                return false
+            }
+            return final()
+            
+        }
+        function final(){
             $.ajax({
                 url:"https://api.apispreadsheets.com/data/jsBFKzo5MUl0OZ4h/",
                 type:"post",
@@ -90,6 +121,10 @@
                 }
             });
             alert("Form Data Submitted :)")
+            document.forms["myForm"]["name"].value=""
+            document.forms["myForm"]["whatsapp_number"].value=""
+            document.forms["myForm"]["email_id"].value=""
+            document.forms["myForm"]["college_name"].value=""
         }
     </script>
 </body>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codegnan</title>
+    <link href="https://global-uploads.webflow.com/635364a5c396ae17dd3753a0/635aba1824c1b86096bfda93_circles-min%20(2).png" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="codegnan.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+</head>
+<body>
+    <!-- Navbar Section -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <a class="navbar-brand" href="#"> <img src="https://global-uploads.webflow.com/635364a5c396ae17dd3753a0/6357ec13bf52556e7d89723a_codegnan%20LOGO%20PNG-p-500.png" class="stylinglogo"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <li><a class="dropdown-item" href="https://www.codegnan.com/"><b><i>JAP</i></b></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" id="go2">Courses</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Python training in Vijayawada</a></li>
+                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Machine Learning with Python</a></li>
+                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Web Development with Python Certification</a></li>
+                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">ReactJS Certification</a></li>
+                    </ul>
+                  </li>
+                <a class="nav-link" href="https://www.codegnan.com/" id="go">Blogs</a>
+                <a class="nav-link" href="https://www.codegnan.com/" id="go">Webinars</a>
+                <a class="nav-link" href="https://www.codegnan.com/" id="go">Bootcamps</a>
+                <a class="nav-link" href="https://www.codegnan.com/" id="go">Internships</a>
+                <a class="nav-link" href="https://www.codegnan.com/" id="goo1">Apply as Mentor</a>
+              </div>
+            </div>
+          </nav>
+        
+    <!-- Webpage section -->
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12 col-md-6">
+                <img src="https://global-uploads.webflow.com/635364a5c396ae17dd3753a0/63731ce427b2914a3bac98aa_circles-min.png" class="imgstyle"/>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <form id="myForm">
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Name:</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput2">WhatsApp No:</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your WhatsApp Number" name="whatsapp_number">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Email ID</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Email ID" name="email_id">
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2">College Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your College Name" name="college_name">
+                      </div>
+
+                      <button type="submit" class="btn btn-success" onclick="SubForm()">Submit</button>
+                  </form>
+            </div>
+
+        </div>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script>
+        function SubForm (e){
+            $.ajax({
+                url:"https://api.apispreadsheets.com/data/jsBFKzo5MUl0OZ4h/",
+                type:"post",
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                    console.log("Form Data Submitted :)")
+                },
+                error: function(){
+                    alert("There was an error :(")
+                }
+            });
+            alert("Form Data Submitted :)")
+        }
+    </script>
+</body>
+</html>

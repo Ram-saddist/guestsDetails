@@ -1,0 +1,47 @@
+.stylinglogo {
+    width: 240px;
+    height: 70px;
+    padding:10px;
+}
+#go {
+    color:black;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border:0px;
+}
+#go2 {
+    color:black;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    border:0px;
+}
+#go2:hover{
+    color: #035efc;
+}
+#go:hover{
+    color: #035efc;
+}
+#goo1 {
+    background-color: #035efc;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border:0px;
+    margin-left: 20px;
+}
+#goo1:hover{
+    background-color: black;
+    color: white;
+}
+.imgstyle {
+    min-height: 100%;
+    width: 80%;
+}
+.form-group label {
+    color:black;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border:0px;
+}

@@ -46,7 +46,7 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <form id="myForm">
+                <form id="myForm" onsubmit="return true">
                     <div class="form-group">
                       <label for="formGroupExampleInput">Name:</label>
                       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name" name="name">
@@ -63,7 +63,10 @@
                         <label for="formGroupExampleInput2">College Name:</label>
                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your College Name" name="college_name">
                       </div>
-
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2">Branch Name:</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your Branch Name" name="branch_name">
+                      </div>
                       <button type="submit" class="btn btn-success">Submit</button>
                   </form>
             </div>
@@ -85,6 +88,7 @@
             var mobile=document.forms["myForm"]["whatsapp_number"].value;
             var email=document.forms["myForm"]["email_id"].value;
             var collegename=document.forms["myForm"]["college_name"].value;
+            var branchname=document.forms["myForm"]["branch_name"].value;
             var mobileCheck=/^[0-9]{10}$/
             var emailCheck= /^[A-Za-z0-9.]+@[a-zA-Z]+\.[a-z]{2,3}$/;
                     //sivaram@codegnan.com
@@ -110,11 +114,15 @@
                 alert("Please fill college name")
                 return false
             }
+            if(branchname==""){
+                alert("Please fill your branch name")
+                return false
+            }
             return serverCode(data)
         })
         function serverCode(data){
             console.log(data)
-            fetch("https://script.google.com/macros/s/AKfycbw6zNZa-vmOHjZQyA75NXIsYCy1thLX3svmHkWJuVBVi1fkAYsfBPWE7Z8rpEfhh19eWw/exec",{
+            fetch("https://script.google.com/macros/s/AKfycbx_j7Zt2lGkMFxQJYsSfE3jRNzBdTWXWh29-2xVNc1dcl07jYolIWi9kH9ov0iW7BmKNw/exec",{
                 method:"POST",
                 body:data
             })
@@ -124,6 +132,8 @@
             document.forms["myForm"]["whatsapp_number"].value=""
             document.forms["myForm"]["email_id"].value=""
             document.forms["myForm"]["college_name"].value=""
+            document.forms["myForm"]["branch_name"].value=""
+            window.location.href = "payment.html";
         }
     </script>
 </body>

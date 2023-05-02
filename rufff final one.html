@@ -13,27 +13,27 @@
 <body>
     <!-- Navbar Section -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <a class="navbar-brand" href="#"> <img src="https://global-uploads.webflow.com/635364a5c396ae17dd3753a0/6357ec13bf52556e7d89723a_codegnan%20LOGO%20PNG-p-500.png" class="stylinglogo"/></a>
+            <a target="_blank" class="navbar-brand" href="https://www.codegnan.com/"> <img src="https://global-uploads.webflow.com/635364a5c396ae17dd3753a0/6357ec13bf52556e7d89723a_codegnan%20LOGO%20PNG-p-500.png" class="stylinglogo"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
-                <li><a class="dropdown-item" href="https://www.codegnan.com/"><b><i>JAP</i></b></a></li>
+                <li><a target="_blank" class="dropdown-item" href="https://www.codegnan.com/job-accelerator-program"><b><i>JAP</i></b></a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" id="go2">Courses</a>
+                    <a target="_blank" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" id="go2">Courses</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Python training in Vijayawada</a></li>
-                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Machine Learning with Python</a></li>
-                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">Web Development with Python Certification</a></li>
-                      <li><a class="dropdown-item" href="https://www.codegnan.com/" id="go">ReactJS Certification</a></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://www.codegnan.com/" id="go">Python training in Vijayawada</a></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://www.codegnan.com/" id="go">Machine Learning with Python</a></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://www.codegnan.com/" id="go">Web Development with Python Certification</a></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://www.codegnan.com/" id="go">ReactJS Certification</a></li>
                     </ul>
                   </li>
-                <a class="nav-link" href="https://www.codegnan.com/" id="go">Blogs</a>
-                <a class="nav-link" href="https://www.codegnan.com/" id="go">Webinars</a>
-                <a class="nav-link" href="https://www.codegnan.com/" id="go">Bootcamps</a>
-                <a class="nav-link" href="https://www.codegnan.com/" id="go">Internships</a>
-                <a class="nav-link" href="https://www.codegnan.com/" id="goo1">Apply as Mentor</a>
+                <a target="_blank" class="nav-link" href="https://www.codegnan.com/blog" id="go">Blogs</a>
+                <a target="_blank" class="nav-link" href="https://www.codegnan.com/webinars" id="go">Webinars</a>
+                <a target="_blank" class="nav-link" href="https://www.codegnan.com/bootcamp" id="go">Bootcamps</a>
+                <a target="_blank" class="nav-link" href="#" id="go">Internships</a>
+                <a target="_blank" class="nav-link" href="https://www.codegnan.com/request-call-back-apply-as-mentor" id="goo1">Apply as Mentor</a>
               </div>
             </div>
           </nav>
@@ -64,7 +64,7 @@
                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your College Name" name="college_name">
                       </div>
 
-                      <button type="submit" class="btn btn-success" onclick="SubForm();return false">Submit</button>
+                      <button type="submit" class="btn btn-success">Submit</button>
                   </form>
             </div>
 
@@ -77,7 +77,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     <script>
-        function SubForm (){
+        let form =document.forms["myForm"];
+        console.log(new FormData())
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault()
             var username=document.forms["myForm"]["name"].value;
             var mobile=document.forms["myForm"]["whatsapp_number"].value;
             var email=document.forms["myForm"]["email_id"].value;
@@ -85,6 +88,8 @@
             var mobileCheck=/^[0-9]{10}$/
             var emailCheck= /^[A-Za-z0-9.]+@[a-zA-Z]+\.[a-z]{2,3}$/;
                     //sivaram@codegnan.com
+            let data= new FormData(form)
+            console.log("daaaaaat",data)
             if(username==""){
                 alert("Please fill your name")
                 return false
@@ -105,22 +110,16 @@
                 alert("Please fill college name")
                 return false
             }
-            return final()
-            
-        }
-        function final(){
-            $.ajax({
-                url:"https://api.apispreadsheets.com/data/jsBFKzo5MUl0OZ4h/",
-                type:"post",
-                data:$("#myForm").serializeArray(),
-                success: function(){
-                    console.log("Form Data Submitted :)")
-                },
-                error: function(){
-                    alert("There was an error :(")
-                }
-            });
-            alert("Form Data Submitted :)")
+            return serverCode(data)
+        })
+        function serverCode(data){
+            console.log(data)
+            fetch("https://script.google.com/macros/s/AKfycbw6zNZa-vmOHjZQyA75NXIsYCy1thLX3svmHkWJuVBVi1fkAYsfBPWE7Z8rpEfhh19eWw/exec",{
+                method:"POST",
+                body:data
+            })
+                .then(res=>res.text())
+                .then(data=> console.log(data))
             document.forms["myForm"]["name"].value=""
             document.forms["myForm"]["whatsapp_number"].value=""
             document.forms["myForm"]["email_id"].value=""

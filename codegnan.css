@@ -36,12 +36,19 @@
     color: white;
 }
 .imgstyle {
-    min-height: 45%;
+    min-height: 40%;
     width: 100%;
+    border-radius: 15px;
 }
 .form-group label {
     color:black;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold;
     border:0px;
+}
+
+@media (max-width:768px){
+  .imgstyle{
+    margin-bottom: 10%;
+  }  
 }
